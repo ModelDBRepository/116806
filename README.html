@@ -1,0 +1,94 @@
+<html><pre>
+* README
+
+** What is this program?
+
+This is the source code of my reservoir computing model presented in
+the following paper:
+
+    Tadashi Yamazaki and Shigeru Tanaka,
+    Robust Reservoir Generation by Correlation-Based Learning,
+    Advances in Artificial Neural Systems,
+    vol. 2009, Article ID 467128, 7 pages, 2009. doi:10.1155/2009/467128
+
+    http://www.hindawi.com/GetArticle.aspx?doi=10.1155/2009/467128
+
+    This is an open access article so that anyone can download the PDF
+    from the above link.
+
+The model can be run online at the <a href="http://sim.neuroinf.jp">sim.neuinf.jp simulation platform</a>: <a href="http://sim.neuroinf.jp/modules/xoonips/detail.php?item_id=73">
+<img src="./button.png" height=32 width=32 align=middle></a>
+
+** Files
+
+This folder contains the following files:
+
+README :: This file
+Makefile :: Makefile
+main.c :: The simulation program
+xcorr.c :: The program to calculate a similarity index
+mt19937ar-cok.c :: The Mersenne Twister pseudo random number generator (*)
+w.0.bz2 :: Initial connection weights (expand first by % bunzip2 w.0.bz2)
+
+(*) http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
+
+** Usage
+
+1. % make
+2. % ./main 3 o w.0 w.1 33
+3. % xcorr o.a o.a c
+
+#1 generates main and xcorr binaries.
+
+#2 generates o.a, o.r, and w.1.  File o.a is used to compute a similarity
+index.  File o.r is used to obtain a raster plot.  For example, using
+GNUPLOT, we do:
+
+% gnuplot
+gnuplot> plot [0:1000][0:100] 'o.r' w d
+
+to plot the activity of the first 100 neurons for 1000 steps.  File w.1
+is the updated connection weights from the initial weights specified by
+w.0.  The 1st arg (3) is the random number seed for random connections
+from excitatory to inhibitory neurons, so that this arg is fixed during
+repeated trials.  The last arg (33) is the seed for temporal afferent
+noise, so that this arg should change across trials.  See usage by just
+% ./main.
+
+#3 generates c.png, c.si, c.d, the similarity index, from file o.a.  
+File c.png is the PNG file of the whole index matrix (Eq. 6).
+File c.si contains the average and the standard deviation of the index
+with the following format:
+
+<time step> <avg (Eq. 7)> <std (Eq. 8)> <ave+std> <avg-std>
+
+c.d contains the reproducibility index (Eq. 9).  Reproducibility index
+is calculated by two different output data, say o1.a and o2.a as:
+
+% xcorr o1.a o2.a xc
+
+xc.d represents the reproducibility index.
+
+** Authors
+
+Tadashi Yamazaki and Shigeru Tanaka
+
+TY: Strategic Planning Unit, RIKEN BSI-TOYOTA Collaboration Center,
+RIKEN Brain Science Institute.  ST: Lab. for Visual Neurocomputing,
+RIKEN Brain Science Institute.
+
+** Copyright
+
+Copyright (c) 2008 RIKEN (The Institute of Physical and Chemical
+Research) Some rights reserved.
+
+** License
+
+CC-BY
+
+This work is licensed under the Creative Commons Attribution 3.0
+License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by/3.0/ or send a letter to
+Creative Commons, 171 Second Street, Suite 300, San Francisco,
+California, 94105, USA.
+</pre></html>
