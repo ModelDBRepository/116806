@@ -79,7 +79,7 @@ is calculated by two different output data, say `o1.a` and `o2.a` as:
 Tadashi Yamazaki and Shigeru Tanaka
 
 TY: Strategic Planning Unit, RIKEN BSI-TOYOTA Collaboration Center,
-RIKEN Brain Science Institute.
+RIKEN Brain Science Institute.  
 ST: Lab. for Visual Neurocomputing,
 RIKEN Brain Science Institute.
 
