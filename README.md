@@ -5,10 +5,10 @@
 This is the source code of my reservoir computing model presented in
 the following paper:
 
-    Tadashi Yamazaki and Shigeru Tanaka,
-    Robust Reservoir Generation by Correlation-Based Learning,
-    *Advances in Artificial Neural Systems*,
-    vol. 2009, Article ID 467128, 7 pages, 2009. doi:10.1155/2009/467128
+Tadashi Yamazaki and Shigeru Tanaka,
+Robust Reservoir Generation by Correlation-Based Learning,
+*Advances in Artificial Neural Systems*,
+vol. 2009, Article ID 467128, 7 pages, 2009. doi:10.1155/2009/467128
 
 [http://www.hindawi.com/GetArticle.aspx?doi=10.1155/2009/467128](http://www.hindawi.com/GetArticle.aspx?doi=10.1155/2009/467128)
 
